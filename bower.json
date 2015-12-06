@@ -1,0 +1,29 @@
+{
+  "name": "todo_challenge",
+  "homepage": "https://github.com/mongolianprincess/todo_challenge",
+  "authors": [
+    "mongolianprincess <ayc.yang@gmail.com>"
+  ],
+  "description": "to do list",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "angular": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-local-storage": "~0.2.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8",
+    "angular-route": "~1.4.8"
+  }
+}
