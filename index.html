@@ -1,24 +1,40 @@
 <!doctype html>
-<html lang="en" ng-app="ToDoList">
+<html lang="en" ng-app="ToDo">
 
   <head>
     <meta charset="utf-8">
     <title>To Do List</title>
+    <style>
+    .done{text-decoration: line-through;}
+    </style>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/toDoListController.js"></script>
+    <script src="js/toDoController.js"></script>
   </head>
 
-  <body ng-controller="ToDoListController as toDoCtrl">
+  <body ng-controller="ToDoController as todoCtrl">
     <div class="task-list">
-  <h3>Funky To Do List</h3>
-  <form id="todo-form">
-    <input type="text" placeholder="What funk needs to be done?" />
-    <input type="button" class="btn btn-primary" value="Add Task" />
-  </form>
+      <h3>Funky To Do List</h3>
+      <form id="todo-form" name="form" ng-submit="todoCtrl.addTodo()">
+        <input type="text" name="newtodo" ng-model="todoCtrl.newTodo" ng-change="todoCtrl.newTodo" placeholder="Enter new to do task" required />
+        <input type="submit" class="btn"  ng-disabled = "todo-form.$invalid" style="position: absolute; height: 0px; width: 0px; border: none; padding: 0px;" hidefocus="true" tabindex="-1"/>
+      </form>
+    </div>
+    <div id="list">
+      <ul class = "list-group">
+        <li class = "list-group-item" ng-repeat="todo in todoCtrl.todos">
+          <input type="checkbox" ng-model="todo.done">
+          <span ng-class="{'done':todo.done}">{{todo.title}}</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <span> {{todoCtrl.todos.length}} tasks remaining </span>
+    </div>
+      <button class ="btn" ng-click="todoCtrl.clearCompleted()">Clear Completed</button>
   </body>
 
 </html>

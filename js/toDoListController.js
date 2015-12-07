@@ -1,3 +1,0 @@
-toDoList.controller('ToDoListController',[function(){
-
-}]);
